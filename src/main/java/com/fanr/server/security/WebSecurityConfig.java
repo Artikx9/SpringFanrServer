@@ -30,7 +30,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     // Entry points
     http.authorizeRequests()//
         .antMatchers("/users/signin").permitAll()//
-        .antMatchers("/users/signup").permitAll()//
+        .antMatchers("/users/signup").permitAll()
+            .antMatchers("/soap/*").permitAll()
         // Disallow everything else..
         .anyRequest().authenticated();
 
@@ -45,7 +46,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
   }
 
   @Override
-  public void configure(WebSecurity web) throws Exception {
+  public void configure(WebSecurity web) {
     // Allow swagger to be accessed without authentication
     web.ignoring().antMatchers("/v2/api-docs")//
         .antMatchers("/swagger-resources/**")//

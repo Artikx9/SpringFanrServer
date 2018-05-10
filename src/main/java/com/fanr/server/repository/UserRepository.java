@@ -1,12 +1,9 @@
 package com.fanr.server.repository;
 
-import javax.transaction.Transactional;
-
+import com.fanr.server.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.fanr.server.model.User;
-
-import java.util.List;
+import javax.transaction.Transactional;
 
 public interface UserRepository extends JpaRepository<User, Integer> {
 

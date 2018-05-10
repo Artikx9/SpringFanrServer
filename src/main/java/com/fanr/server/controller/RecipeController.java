@@ -9,6 +9,7 @@ import com.fanr.server.model.User;
 import com.fanr.server.repository.RecipeRepository;
 import com.fanr.server.service.RecipeService;
 import com.fanr.server.service.UserService;
+import com.sun.org.apache.regexp.internal.RE;
 import io.swagger.annotations.*;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -90,5 +91,27 @@ public class RecipeController {
             @ApiResponse(code = 500, message = "Expired or invalid JWT token")})
     public void deleteRecipe(@RequestParam("id") int id,HttpServletRequest req) {
            recipeService.deleteRecipe(id,userService.whoami(req));
+    }
+
+    @GetMapping(value = "/version", params = "id")
+    @ApiOperation(value = "${RecipeController.version}")
+    @ApiResponses(value = {//
+            @ApiResponse(code = 400, message = "Something went wrong"), //
+            @ApiResponse(code = 403, message = "Access denied"), //
+            @ApiResponse(code = 422, message = "Username is already in use"), //
+            @ApiResponse(code = 500, message = "Expired or invalid JWT token")})
+    public Integer findVersion(@RequestParam("id") int id, HttpServletRequest req) {
+       return recipeService.findVersion(id);
+    }
+
+    @GetMapping(value = "/recipe", params = "id")
+    @ApiOperation(value = "${RecipeController.version}")
+    @ApiResponses(value = {//
+            @ApiResponse(code = 400, message = "Something went wrong"), //
+            @ApiResponse(code = 403, message = "Access denied"), //
+            @ApiResponse(code = 422, message = "Username is already in use"), //
+            @ApiResponse(code = 500, message = "Expired or invalid JWT token")})
+    public Recipe idInRecipe(@RequestParam("id") int id, HttpServletRequest req) {
+        return recipeService.idInRecipe(id);
     }
 }

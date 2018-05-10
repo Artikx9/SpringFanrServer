@@ -39,4 +39,15 @@ public interface RecipeRepository extends JpaRepository<Recipe, Integer> {
     @Modifying
     @Query("DELETE  FROM Recipe c where c.Id = :recipeId and c.user = :User")
     void deleteRecipe(@Param("recipeId") int recipeId, @Param("User") User User);
+
+   @Query("SELECT c.Version " +
+            "from Recipe c" +
+            " where c.Id = :recipeId ")
+    Integer findVersion(@Param("recipeId") Integer id);
+
+    @Query("SELECT c " +
+            "from Recipe c" +
+            " where c.Id = :recipeId ")
+    Recipe idInRecipe(@Param("recipeId") Integer id);
+
 }

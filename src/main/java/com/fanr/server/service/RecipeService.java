@@ -47,4 +47,12 @@ public class RecipeService {
     {
         recipeRepository.deleteRecipe(id, user);
     }
+
+    public Integer findVersion(int id) {
+      return   recipeRepository.findVersion(id);
+    }
+
+    public Recipe idInRecipe(int id) {
+        return   recipeRepository.idInRecipe(id);
+    }
 }
