@@ -65,6 +65,7 @@ public class UserController {
       @ApiResponse(code = 404, message = "The user doesn't exist"), //
       @ApiResponse(code = 500, message = "Expired or invalid JWT token")})
   public String delete(@ApiParam("Username") @PathVariable String username) {
+      userService.search(username);
     userService.delete(username);
     return username;
   }
@@ -105,12 +106,12 @@ public class UserController {
   }
 
   @GetMapping(value = "/alluser")
-  @PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_CLIENT')")
+  @PreAuthorize("hasRole('ROLE_ADMIN')")
   @ApiResponses(value = {//
           @ApiResponse(code = 400, message = "Something went wrong"), //
           @ApiResponse(code = 403, message = "Access denied"), //
           @ApiResponse(code = 500, message = "Expired or invalid JWT token")})
-  public User getAllUser(@RequestParam("username") String username) {
-    return userRepository.findByUsername(username);
+  public List<User> getAllUser() {
+    return userRepository.findAll();
   }
 }

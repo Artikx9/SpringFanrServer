@@ -1,10 +1,5 @@
 package com.fanr.server;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-
-import com.fanr.server.model.Role;
-import com.fanr.server.model.User;
 import com.fanr.server.service.UserService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
