@@ -1,8 +1,8 @@
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/db_fanr
-    username: root
-    password: admin
+    url: jdbc:mysql://lt80glfe2gj8p5n2.chr7pe7iynqr.eu-west-1.rds.amazonaws.com:3306/r6uufa86c92b12ws?autoReconnect=true&useSSL=false
+    username: tug5zlw1afm1a1zd
+    password: wwm90j7txnrszvrk
   tomcat:
     max-wait: 20000
     max-active: 50
