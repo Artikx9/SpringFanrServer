@@ -1,9 +1,10 @@
 spring:
   datasource:
-    url: jdbc:mysql://lt80glfe2gj8p5n2.chr7pe7iynqr.eu-west-1.rds.amazonaws.com:3306/r6uufa86c92b12ws?autoReconnect=true&useSSL=false
-    username: tug5zlw1afm1a1zd
-    password: wwm90j7txnrszvrk
+    url: jdbc:mysql://sql2.freemysqlhosting.net:3306/sql2268971?autoReconnect=true&useSSL=false
+    username: sql2268971
+    password: lW4%kJ1%
   tomcat:
+
     max-wait: 20000
     max-active: 50
     max-idle: 20
